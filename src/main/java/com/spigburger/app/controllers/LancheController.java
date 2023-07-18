@@ -17,6 +17,11 @@ public class LancheController {
     @Autowired
     private LancheService lancheService;
 
+    @GetMapping(value = "/below={searchPrice}")
+    public List<LancheMinDTO>findBelowPrice(@PathVariable Double searchPrice) {
+        return  lancheService.filterBelowPrice(searchPrice);
+    }
+
     @GetMapping(value = "/{id}")
     public LancheDTO findById(@PathVariable Long id) {
         return  lancheService.findById(id);
