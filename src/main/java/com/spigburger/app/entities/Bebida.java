@@ -16,6 +16,9 @@ public class Bebida {
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
+    public Bebida() {
+    }
+
     public Bebida(Long id, String name, boolean isAlcoolica, String shortDescription, Double price, Categoria categoria) {
         this.id = id;
         this.name = name;

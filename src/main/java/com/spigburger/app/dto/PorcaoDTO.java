@@ -1,6 +1,5 @@
 package com.spigburger.app.dto;
 
-import com.spigburger.app.entities.Lanche;
 import com.spigburger.app.entities.Porcao;
 
 public class PorcaoDTO {

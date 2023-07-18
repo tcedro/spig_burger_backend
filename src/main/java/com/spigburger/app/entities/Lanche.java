@@ -17,6 +17,10 @@ public class Lanche {
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
+
+    public Lanche() {
+    }
+
     public Lanche(Long id, String name, String shortDescription, String ingredientes, Double price, Categoria categoria) {
         this.id = id;
         this.name = name;
