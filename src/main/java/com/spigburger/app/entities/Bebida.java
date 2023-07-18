@@ -12,6 +12,18 @@ public class Bebida {
     private boolean isAlcoolica;
     private String shortDescription;
     private Double price;
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+
+    public Bebida(Long id, String name, boolean isAlcoolica, String shortDescription, Double price, Categoria categoria) {
+        this.id = id;
+        this.name = name;
+        this.isAlcoolica = isAlcoolica;
+        this.shortDescription = shortDescription;
+        this.price = price;
+        this.categoria = categoria;
+    }
 
     public Long getId() {
         return id;
@@ -50,5 +62,13 @@ public class Bebida {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }

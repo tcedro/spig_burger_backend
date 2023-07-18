@@ -11,12 +11,16 @@ public class Porcao {
     private String name;
     private Double price;
     private String shortDescription;
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
 
-    public Porcao(Long id, String name, Double price, String shortDescription) {
+    public Porcao(Long id, String name, Double price, String shortDescription, Categoria categoria) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.shortDescription = shortDescription;
+        this.categoria = categoria;
     }
 
     public Long getId() {
@@ -51,4 +55,11 @@ public class Porcao {
         this.shortDescription = shortDescription;
     }
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 }
