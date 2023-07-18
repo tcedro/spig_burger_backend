@@ -10,7 +10,7 @@ INSERT INTO tb_lanche (name, short_description, ingredientes, price, categoria_i
 INSERT INTO tb_bebida (name, is_alcoolica, short_description, price, categoria_id) VALUES ('Coca-cola', FALSE, 'Refigerante de Cola', 5.0, 2);
 INSERT INTO tb_bebida (name, is_alcoolica, short_description, price, categoria_id) VALUES ('Suco de Laranja', FALSE, 'Suco natural de laranja', 6.0, 2);
 INSERT INTO tb_bebida (name, is_alcoolica, short_description, price, categoria_id) VALUES ('Caipirinha', TRUE, 'Coquetel com cachaça, limão e açúcar', 10.0, 2);
-INSERT INTO tb_bebida (name, is_alcoolica, short_description, price, categoria_id) VALUES ('Água Mineral', FALSE, 'Água sem gás', 3.0);
+INSERT INTO tb_bebida (name, is_alcoolica, short_description, price, categoria_id) VALUES ('Água Mineral', FALSE, 'Água sem gás', 3.0, 2);
 
 INSERT INTO tb_porcao (name, price, short_description, categoria_id) VALUES('Batata Frita', 17.0, '100g de Batata americana frita em tiras', 2)
 INSERT INTO tb_porcao (name, price, short_description, categoria_id) VALUES ('Onion Rings', 12.0, 'Porção de anéis de cebola empanados e crocantes', 2);

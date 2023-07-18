@@ -15,6 +15,9 @@ public class Porcao {
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
+    public Porcao() {
+    }
+
     public Porcao(Long id, String name, Double price, String shortDescription, Categoria categoria) {
         this.id = id;
         this.name = name;

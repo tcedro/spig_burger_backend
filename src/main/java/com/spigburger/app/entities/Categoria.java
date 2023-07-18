@@ -10,6 +10,9 @@ public class Categoria {
     private long id;
     private String name;
 
+    public Categoria() {
+    }
+
     public Categoria(long id, String name) {
         this.id = id;
         this.name = name;
