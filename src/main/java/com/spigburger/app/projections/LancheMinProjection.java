@@ -4,4 +4,5 @@ public interface LancheMinProjection {
     Long getId();
     String getName();
     Double getPrice();
+    String getShortDescription();
 }

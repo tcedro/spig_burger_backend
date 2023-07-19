@@ -1,9 +1,8 @@
 package com.spigburger.app.services;
 
-import com.spigburger.app.dto.BebidaDTO;
-import com.spigburger.app.dto.BebidaMinDTO;
-import com.spigburger.app.dto.LancheMinDTO;
+import com.spigburger.app.dto.*;
 import com.spigburger.app.entities.Bebida;
+import com.spigburger.app.entities.Lanche;
 import com.spigburger.app.projections.BebidaMinProjection;
 import com.spigburger.app.projections.LancheMinProjection;
 import com.spigburger.app.repositories.BebidaRepository;
@@ -39,6 +38,11 @@ public class BebidaService {
     public List<BebidaMinDTO> filterAbovePrice(Double searchPrice) {
         List<BebidaMinProjection> result = bebidaRepository.filterAbovePrice(searchPrice);
         return  result.stream().map(x -> new BebidaMinDTO(x)).toList();
+    }
+
+    public Bebida save(BebidaResquestDTO data) {
+        Bebida bebidaData = new Bebida(data);
+        return   bebidaRepository.save(bebidaData);
     }
 
 }

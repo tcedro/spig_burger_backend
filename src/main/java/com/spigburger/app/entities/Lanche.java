@@ -1,5 +1,7 @@
 package com.spigburger.app.entities;
 
+import com.spigburger.app.dto.LancheDTO;
+import com.spigburger.app.dto.LancheRequestDTO;
 import jakarta.persistence.*;
 
 @Entity
@@ -19,6 +21,12 @@ public class Lanche {
 
 
     public Lanche() {
+    }
+
+    public Lanche(LancheRequestDTO entity) {
+        this.name = entity.name();
+        this.price = entity.price();
+        this.shortDescription = entity.shortDescription();
     }
 
     public Lanche(Long id, String name, String shortDescription, String ingredientes, Double price, Categoria categoria) {

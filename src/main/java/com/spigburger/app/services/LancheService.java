@@ -2,6 +2,7 @@ package com.spigburger.app.services;
 
 import com.spigburger.app.dto.LancheDTO;
 import com.spigburger.app.dto.LancheMinDTO;
+import com.spigburger.app.dto.LancheRequestDTO;
 import com.spigburger.app.entities.Lanche;
 import com.spigburger.app.projections.LancheMinProjection;
 import com.spigburger.app.repositories.LancheRepository;
@@ -38,6 +39,11 @@ public class LancheService {
     public List<LancheMinDTO> filterAbovePrice(Double searchPrice) {
         List<LancheMinProjection> result = lancheRepository.filterAbovePrice(searchPrice);
         return  result.stream().map(x -> new LancheMinDTO(x)).toList();
+    }
+
+    public Lanche save(LancheRequestDTO data) {
+        Lanche lancheData = new Lanche(data);
+        return   lancheRepository.save(lancheData);
     }
 
 }
