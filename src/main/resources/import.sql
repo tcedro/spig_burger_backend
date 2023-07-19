@@ -1,9 +1,3 @@
-CREATE TABLE tb_users(
-    id TEXT PRIMARY KEY UNIQUE NOT NULL,
-    login TEXT NOT NULL UNIQUE,
-    password TEXT NOT NULL,
-    role TEXT NOT NULL
-);
 
 INSERT INTO tb_categoria(name) VALUES('Lanche');
 INSERT INTO tb_categoria(name) VALUES('Bebida');
