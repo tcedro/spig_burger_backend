@@ -1,5 +1,6 @@
 package com.spigburger.app.controllers;
 
+import com.spigburger.app.dto.LancheMinDTO;
 import com.spigburger.app.dto.PorcaoDTO;
 import com.spigburger.app.dto.PorcaoMinDTO;
 import com.spigburger.app.services.PorcaoService;
@@ -27,4 +28,13 @@ public class PorcaoController {
     @GetMapping
     public List<PorcaoMinDTO> findAll() { return  porcaoService.findAll(); }
 
+    @GetMapping(value = "/below/{searchPrice}/porcoes")
+    public List<PorcaoMinDTO>findBelowPrice(@PathVariable Double searchPrice) {
+        return  porcaoService.filterBelowPrice(searchPrice);
+    }
+
+    @GetMapping(value = "/above/{searchPrice}/porcoes")
+    public List<PorcaoMinDTO>findAbovePrice(@PathVariable Double searchPrice) {
+        return porcaoService.filterAbovePrice(searchPrice);
+    }
 }

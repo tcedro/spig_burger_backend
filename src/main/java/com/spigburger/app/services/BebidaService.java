@@ -2,7 +2,10 @@ package com.spigburger.app.services;
 
 import com.spigburger.app.dto.BebidaDTO;
 import com.spigburger.app.dto.BebidaMinDTO;
+import com.spigburger.app.dto.LancheMinDTO;
 import com.spigburger.app.entities.Bebida;
+import com.spigburger.app.projections.BebidaMinProjection;
+import com.spigburger.app.projections.LancheMinProjection;
 import com.spigburger.app.repositories.BebidaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +27,18 @@ public class BebidaService {
     public List<BebidaMinDTO> findAll() {
         List<Bebida> result = bebidaRepository.findAll();
         return result.stream().map(x-> new BebidaMinDTO(x)).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<BebidaMinDTO> filterBelowPrice(Double searchPrice) {
+        List<BebidaMinProjection> result = bebidaRepository.filterBelowPrice(searchPrice);
+        return  result.stream().map(x -> new BebidaMinDTO(x)).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<BebidaMinDTO> filterAbovePrice(Double searchPrice) {
+        List<BebidaMinProjection> result = bebidaRepository.filterAbovePrice(searchPrice);
+        return  result.stream().map(x -> new BebidaMinDTO(x)).toList();
     }
 
 }

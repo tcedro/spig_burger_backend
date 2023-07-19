@@ -34,4 +34,10 @@ public class LancheService {
         return  result.stream().map(x -> new LancheMinDTO(x)).toList();
     }
 
+    @Transactional(readOnly = true)
+    public List<LancheMinDTO> filterAbovePrice(Double searchPrice) {
+        List<LancheMinProjection> result = lancheRepository.filterAbovePrice(searchPrice);
+        return  result.stream().map(x -> new LancheMinDTO(x)).toList();
+    }
+
 }
