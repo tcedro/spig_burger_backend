@@ -1,8 +1,7 @@
 package com.spigburger.app.user;
 
 import com.spigburger.app.user.UserRole;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,6 +12,8 @@ import java.util.List;
 @Table(name = "tb_users")
 @Entity
 public class User implements UserDetails {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String login;
     private String password;
