@@ -2,13 +2,11 @@ package com.spigburger.app.controllers;
 
 import com.spigburger.app.dto.BebidaDTO;
 import com.spigburger.app.dto.BebidaMinDTO;
-import com.spigburger.app.dto.PorcaoMinDTO;
+import com.spigburger.app.dto.BebidaResquestDTO;
+import com.spigburger.app.dto.LancheRequestDTO;
 import com.spigburger.app.services.BebidaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,4 +35,10 @@ public class BebidaController {
     public List<BebidaMinDTO>findAbovePrice(@PathVariable Double searchPrice) {
         return bebidaService.filterAbovePrice(searchPrice);
     }
+
+    @PostMapping(value="/save/bebidas")
+    public void saveBebida(@RequestBody BebidaResquestDTO data){
+        bebidaService.save(data);
+    }
+
 }

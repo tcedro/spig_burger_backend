@@ -1,16 +1,11 @@
 package com.spigburger.app.controllers;
 
-import com.spigburger.app.dto.LancheMinDTO;
-import com.spigburger.app.dto.PorcaoDTO;
-import com.spigburger.app.dto.PorcaoMinDTO;
+import com.spigburger.app.dto.*;
 import com.spigburger.app.services.PorcaoService;
 import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,5 +31,10 @@ public class PorcaoController {
     @GetMapping(value = "/above/{searchPrice}/porcoes")
     public List<PorcaoMinDTO>findAbovePrice(@PathVariable Double searchPrice) {
         return porcaoService.filterAbovePrice(searchPrice);
+    }
+
+    @PostMapping(value="/save/porcoes")
+    public void savePorcoes(@RequestBody PorcaoRequestDTO data){
+        porcaoService.save(data);
     }
 }

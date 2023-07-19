@@ -1,5 +1,6 @@
 package com.spigburger.app.entities;
 
+import com.spigburger.app.dto.BebidaResquestDTO;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,6 +18,12 @@ public class Bebida {
     private Categoria categoria;
 
     public Bebida() {
+    }
+
+    public Bebida(BebidaResquestDTO entity) {
+        this.name = entity.name();
+        this.price = entity.price();
+        this.shortDescription = entity.shortDescription();
     }
 
     public Bebida(Long id, String name, boolean isAlcoolica, String shortDescription, Double price, Categoria categoria) {
@@ -51,6 +58,7 @@ public class Bebida {
     public void setAlcoolica(boolean alcoolica) {
         isAlcoolica = alcoolica;
     }
+
     public String getShortDescription() {
         return shortDescription;
     }

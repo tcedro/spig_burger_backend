@@ -1,10 +1,8 @@
 package com.spigburger.app.services;
 
-import com.spigburger.app.dto.LancheMinDTO;
-import com.spigburger.app.dto.PorcaoDTO;
-import com.spigburger.app.dto.PorcaoMinDTO;
+import com.spigburger.app.dto.*;
+import com.spigburger.app.entities.Lanche;
 import com.spigburger.app.entities.Porcao;
-import com.spigburger.app.projections.LancheMinProjection;
 import com.spigburger.app.projections.PorcaoMinProjection;
 import com.spigburger.app.repositories.PorcaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +37,10 @@ public class PorcaoService {
     public List<PorcaoMinDTO> filterAbovePrice(Double searchPrice) {
         List<PorcaoMinProjection> result = porcaoRepository.filterAbovePrice(searchPrice);
         return  result.stream().map(x -> new PorcaoMinDTO(x)).toList();
+    }
+
+    public Porcao save(PorcaoRequestDTO data) {
+        Porcao porcaoData = new Porcao(data);
+        return  porcaoRepository.save(porcaoData);
     }
 }

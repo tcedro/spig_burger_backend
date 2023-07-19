@@ -35,7 +35,7 @@ public class LancheController {
         return lancheService.findAll();
     }
 
-    @PostMapping
+    @PostMapping(value="/save/lanches")
     public void saveLanche(@RequestBody LancheRequestDTO data){
         lancheService.save(data);
     }

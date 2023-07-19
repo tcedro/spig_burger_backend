@@ -1,5 +1,6 @@
 package com.spigburger.app.entities;
 
+import com.spigburger.app.dto.PorcaoRequestDTO;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,6 +17,12 @@ public class Porcao {
     private Categoria categoria;
 
     public Porcao() {
+    }
+
+    public Porcao(PorcaoRequestDTO entity) {
+        this.name = entity.name();
+        this.price = entity.price();
+        this.shortDescription = entity.shortDescription();
     }
 
     public Porcao(Long id, String name, Double price, String shortDescription, Categoria categoria) {
