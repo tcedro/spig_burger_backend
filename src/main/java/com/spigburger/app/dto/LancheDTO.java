@@ -5,13 +5,18 @@ import com.spigburger.app.entities.Lanche;
 public class LancheDTO {
     private String name;
     private Double price;
-    private Long id;
+    private String shortDescription;
 
+    public LancheDTO(LancheRequestDTO entity) {
+        this.name = entity.name();
+        this.price = entity.price();
+        this.shortDescription = entity.shortDescription();
+    }
 
     public LancheDTO(Lanche entity) {
         this.name =  entity.getName();
         this.price = entity.getPrice();
-        this.id = entity.getId();
+        this.shortDescription = entity.getShortDescription();
     }
 
     public String getName() {
@@ -30,11 +35,11 @@ public class LancheDTO {
         this.price = price;
     }
 
-    public Long getId() {
-        return id;
+    public String getShortDescription() {
+        return shortDescription;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 }
